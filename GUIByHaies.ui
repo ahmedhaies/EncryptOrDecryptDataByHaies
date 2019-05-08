@@ -1,0 +1,916 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <author>AhmedHaies</author>
+ <class>EncryptOrDecryptFilesHaies</class>
+ <widget class="QMainWindow" name="EncryptOrDecryptFilesHaies">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>379</width>
+    <height>632</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>379</width>
+    <height>632</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>379</width>
+    <height>632</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>EncryptOrDecryptFilesByHaies</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="res.qrc">
+    <normaloff>:/img/icon.png</normaloff>:/img/icon.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget{
+background-image: url(:/img/backcool3.png);
+}
+</string>
+  </property>
+  <property name="locale">
+   <locale language="Arabic" country="Egypt"/>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>270</y>
+      <width>357</width>
+      <height>322</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QLineEdit" name="lineEditSelected">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="font">
+        <font>
+         <family>Harmattan</family>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::RightToLeft</enum>
+       </property>
+       <property name="locale">
+        <locale language="Arabic" country="Egypt"/>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QProgressBar" name="progressBarForCountFile">
+       <property name="layoutDirection">
+        <enum>Qt::RightToLeft</enum>
+       </property>
+       <property name="locale">
+        <locale language="Arabic" country="Egypt"/>
+       </property>
+       <property name="value">
+        <number>0</number>
+       </property>
+       <property name="textVisible">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QProgressBar" name="progressBarForEncOrDec">
+       <property name="layoutDirection">
+        <enum>Qt::RightToLeft</enum>
+       </property>
+       <property name="locale">
+        <locale language="Arabic" country="Egypt"/>
+       </property>
+       <property name="value">
+        <number>0</number>
+       </property>
+       <property name="textVisible">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <widget class="QToolButton" name="toolButtonSelectFolder">
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="layoutDirection">
+          <enum>Qt::RightToLeft</enum>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">/*
+.QToolButton {
+    position: relative;
+    display: inline-block;
+    font-weight: bold;
+    padding: 0.25em 0.5em;
+    text-decoration: none;
+    color: #00BCD4;
+    background: #ECECEC;
+    border-radius: 0 15px 15px 0;
+    transition: .4s;
+  }
+
+.QToolButton:hover {
+    background: #636363;
+}
+*/
+.QToolButton {
+color: #20bf6b !important;
+text-transform: uppercase;
+font-weight: bold;
+background: #ffffff;
+padding: 5px 5px;
+border: 2px solid #20bf6b !important;
+border-radius: 10px;
+display: inline-block;
+}
+.QToolButton:hover {
+color: #494949 !important;
+border-radius: 40px;
+border-color: #494949 !important;
+transition: all 0.3s ease 0s;
+}</string>
+         </property>
+         <property name="locale">
+          <locale language="Arabic" country="Egypt"/>
+         </property>
+         <property name="text">
+          <string>تحديد مجلد</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="toolButtonSelectFile">
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="layoutDirection">
+          <enum>Qt::RightToLeft</enum>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">/*
+.QToolButton {
+    position: relative;
+    display: inline-block;
+    font-weight: bold;
+    padding: 0.25em 0.5em;
+    text-decoration: none;
+    color: #00BCD4;
+    background: #ECECEC;
+    border-radius: 0 15px 15px 0;
+    transition: .4s;
+  }
+
+.QToolButton:hover {
+    background: #636363;
+}
+*/
+.QToolButton {
+color: #20bf6b !important;
+text-transform: uppercase;
+font-weight: bold;
+background: #ffffff;
+padding: 5px 5px;
+border: 2px solid #20bf6b !important;
+border-radius: 10px;
+display: inline-block;
+}
+.QToolButton:hover {
+color: #494949 !important;
+border-radius: 40px;
+border-color: #494949 !important;
+transition: all 0.3s ease 0s;
+}</string>
+         </property>
+         <property name="locale">
+          <locale language="Arabic" country="Egypt"/>
+         </property>
+         <property name="text">
+          <string>تحديد ملف</string>
+         </property>
+         <property name="checkable">
+          <bool>false</bool>
+         </property>
+         <property name="autoRaise">
+          <bool>false</bool>
+         </property>
+         <property name="arrowType">
+          <enum>Qt::NoArrow</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QLabel" name="label">
+         <property name="font">
+          <font>
+           <family>Harmattan</family>
+           <pointsize>15</pointsize>
+           <weight>75</weight>
+           <italic>false</italic>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="layoutDirection">
+          <enum>Qt::RightToLeft</enum>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="locale">
+          <locale language="Arabic" country="Egypt"/>
+         </property>
+         <property name="text">
+          <string>حدد الملفات :</string>
+         </property>
+         <property name="scaledContents">
+          <bool>false</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QRadioButton" name="radioButtonDecrypt">
+         <property name="font">
+          <font>
+           <family>Harmattan</family>
+           <pointsize>15</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="layoutDirection">
+          <enum>Qt::RightToLeft</enum>
+         </property>
+         <property name="text">
+          <string>فك التشفير</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="radioButtonEncrypt">
+         <property name="font">
+          <font>
+           <family>Harmattan</family>
+           <pointsize>15</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="layoutDirection">
+          <enum>Qt::RightToLeft</enum>
+         </property>
+         <property name="text">
+          <string>تشفير</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_2">
+         <property name="font">
+          <font>
+           <family>Harmattan</family>
+           <pointsize>15</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="layoutDirection">
+          <enum>Qt::RightToLeft</enum>
+         </property>
+         <property name="locale">
+          <locale language="Arabic" country="Egypt"/>
+         </property>
+         <property name="text">
+          <string>حدد النوع :</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="lineEditConfPassword">
+         <property name="font">
+          <font>
+           <family>Harmattan</family>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="layoutDirection">
+          <enum>Qt::RightToLeft</enum>
+         </property>
+         <property name="locale">
+          <locale language="Arabic" country="Egypt"/>
+         </property>
+         <property name="maxLength">
+          <number>16</number>
+         </property>
+         <property name="echoMode">
+          <enum>QLineEdit::Password</enum>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+         <property name="dragEnabled">
+          <bool>true</bool>
+         </property>
+         <property name="placeholderText">
+          <string>أعد كتابة كلمة السر</string>
+         </property>
+         <property name="clearButtonEnabled">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="lineEditPassword">
+         <property name="font">
+          <font>
+           <family>Harmattan</family>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="layoutDirection">
+          <enum>Qt::RightToLeft</enum>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="locale">
+          <locale language="Arabic" country="Egypt"/>
+         </property>
+         <property name="maxLength">
+          <number>16</number>
+         </property>
+         <property name="echoMode">
+          <enum>QLineEdit::Password</enum>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+         <property name="dragEnabled">
+          <bool>false</bool>
+         </property>
+         <property name="placeholderText">
+          <string>أكتب كلمة السر</string>
+         </property>
+         <property name="cursorMoveStyle">
+          <enum>Qt::LogicalMoveStyle</enum>
+         </property>
+         <property name="clearButtonEnabled">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="2">
+        <widget class="QLabel" name="label_3">
+         <property name="font">
+          <font>
+           <family>Harmattan</family>
+           <pointsize>15</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="layoutDirection">
+          <enum>Qt::RightToLeft</enum>
+         </property>
+         <property name="locale">
+          <locale language="Arabic" country="Egypt"/>
+         </property>
+         <property name="text">
+          <string>كلمة السر :</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="2">
+        <widget class="QLabel" name="label_4">
+         <property name="font">
+          <font>
+           <family>Harmattan</family>
+           <pointsize>15</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="layoutDirection">
+          <enum>Qt::RightToLeft</enum>
+         </property>
+         <property name="locale">
+          <locale language="Arabic" country="Egypt"/>
+         </property>
+         <property name="text">
+          <string>أعد كلمة السر :</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <item>
+        <widget class="QPushButton" name="pushButtonOk">
+         <property name="font">
+          <font/>
+         </property>
+         <property name="layoutDirection">
+          <enum>Qt::RightToLeft</enum>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">/*
+.QPushButton {
+color: #494949 !important;
+text-transform: uppercase;
+background: #ffffff;
+padding: 20px;
+border: 4px solid #494949 !important;
+border-radius: 6px;
+display: inline-block;
+}
+*/
+.QPushButton {
+color: #ff0000 !important;
+text-transform: uppercase;
+background: #484848;
+padding: 10px;
+border: 2px solid #494949 !important;
+border-radius: 10px;
+display: inline-block;
+}
+.QPushButton:block {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.QPushButton:active {
+color: #ffffff !important;
+background:#67ce00;
+border-color: #67ce00 !important;
+
+text-transform: uppercase;
+padding: 10px;
+border: 2px solid #494949 !important;
+border-radius: 10px;
+
+}
+.QPushButton:pressed {
+color: #7bbe0e !important;
+background: #ffffff;
+border-color: #67ce00 !important;
+transition: all 0.4s ease 0s;
+}
+.QPushButton:hover {
+border-radius: 40px;
+border-color: #494949 !important;
+transition: all 0.3s ease 0s;
+}</string>
+         </property>
+         <property name="locale">
+          <locale language="Arabic" country="Egypt"/>
+         </property>
+         <property name="text">
+          <string>موافق</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_3">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>0</y>
+      <width>169</width>
+      <height>251</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <item>
+      <widget class="QLabel" name="label_5">
+       <property name="font">
+        <font>
+         <family>Harmattan</family>
+         <pointsize>13</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::RightToLeft</enum>
+       </property>
+       <property name="locale">
+        <locale language="Arabic" country="Egypt"/>
+       </property>
+       <property name="text">
+        <string>هذا البرنامج يسمح لك</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignHCenter|Qt::AlignTop</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_6">
+       <property name="font">
+        <font>
+         <family>Harmattan</family>
+         <pointsize>13</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::RightToLeft</enum>
+       </property>
+       <property name="locale">
+        <locale language="Arabic" country="Egypt"/>
+       </property>
+       <property name="text">
+        <string>بتشفير بياناتك وحمايتها</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignHCenter|Qt::AlignTop</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_7">
+       <property name="font">
+        <font>
+         <family>Harmattan</family>
+         <pointsize>13</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::RightToLeft</enum>
+       </property>
+       <property name="locale">
+        <locale language="Arabic" country="Egypt"/>
+       </property>
+       <property name="text">
+        <string>وفك تشفيرها مرة أخرى</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignHCenter|Qt::AlignTop</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_8">
+       <property name="font">
+        <font>
+         <family>Harmattan</family>
+         <pointsize>13</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::RightToLeft</enum>
+       </property>
+       <property name="locale">
+        <locale language="Arabic" country="Egypt"/>
+       </property>
+       <property name="text">
+        <string>بإستخدام خوارزمية متطورة</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignHCenter|Qt::AlignTop</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_9">
+       <property name="font">
+        <font>
+         <family>Harmattan</family>
+         <pointsize>13</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::RightToLeft</enum>
+       </property>
+       <property name="locale">
+        <locale language="Arabic" country="Egypt"/>
+       </property>
+       <property name="text">
+        <string>برنامج سهل الإستخدام</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignHCenter|Qt::AlignTop</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_10">
+       <property name="font">
+        <font>
+         <family>Harmattan</family>
+         <pointsize>13</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+         <underline>true</underline>
+        </font>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::RightToLeft</enum>
+       </property>
+       <property name="locale">
+        <locale language="Arabic" country="Egypt"/>
+       </property>
+       <property name="text">
+        <string>تمت برمجته بواسطة :</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignHCenter|Qt::AlignTop</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_11">
+       <property name="font">
+        <font>
+         <family>Harmattan</family>
+         <pointsize>13</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::RightToLeft</enum>
+       </property>
+       <property name="locale">
+        <locale language="Arabic" country="Egypt"/>
+       </property>
+       <property name="text">
+        <string>أحمد حايس</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignHCenter|Qt::AlignTop</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_12">
+       <property name="font">
+        <font>
+         <family>Harmattan</family>
+         <pointsize>13</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+         <underline>true</underline>
+         <strikeout>false</strikeout>
+        </font>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::RightToLeft</enum>
+       </property>
+       <property name="locale">
+        <locale language="Arabic" country="Egypt"/>
+       </property>
+       <property name="text">
+        <string>فيس بوك :</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignHCenter|Qt::AlignTop</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_13">
+       <property name="font">
+        <font>
+         <family>Harmattan</family>
+         <pointsize>13</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::RightToLeft</enum>
+       </property>
+       <property name="locale">
+        <locale language="Arabic" country="Egypt"/>
+       </property>
+       <property name="inputMethodHints">
+        <set>Qt::ImhNone</set>
+       </property>
+       <property name="text">
+        <string>&lt;a href=&quot;https://fb.com/ahmed.haies&quot;&gt;ahmed.haies&lt;/a&gt;</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignHCenter|Qt::AlignTop</set>
+       </property>
+       <property name="openExternalLinks">
+        <bool>true</bool>
+       </property>
+       <property name="textInteractionFlags">
+        <set>Qt::LinksAccessibleByMouse</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QLabel" name="label_14">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>20</y>
+      <width>181</width>
+      <height>211</height>
+     </rect>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::RightToLeft</enum>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="res.qrc">:/img/icon.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>379</width>
+     <height>34</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Harmattan</family>
+     <pointsize>13</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::RightToLeft</enum>
+   </property>
+   <property name="locale">
+    <locale language="Arabic" country="Egypt"/>
+   </property>
+   <widget class="QMenu" name="menuSystem">
+    <property name="font">
+     <font>
+      <family>Harmattan</family>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="locale">
+     <locale language="Arabic" country="Egypt"/>
+    </property>
+    <property name="title">
+     <string>النظام</string>
+    </property>
+    <addaction name="actionHelp"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <addaction name="menuSystem"/>
+  </widget>
+  <action name="actionHelp">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>مساعدة</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Harmattan</family>
+     <pointsize>15</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>خروج</string>
+   </property>
+   <property name="font">
+    <font>
+     <family>Harmattan</family>
+     <pointsize>15</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="res.qrc"/>
+ </resources>
+ <connections/>
+</ui>
